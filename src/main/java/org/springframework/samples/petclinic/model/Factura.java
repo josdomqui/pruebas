@@ -1,22 +1,24 @@
 package org.springframework.samples.petclinic.model;
 
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
-
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "facturas")
 public class Factura extends BaseEntity{
 	
-//	@ManyToMany
-//	@JoinColumn(name = "producto_id")
-//	private Producto producto;
-//
-//	@ManyToMany
-//	@JoinColumn(name = "ciente_id")
-//	private Cliente cliente;
-
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "factura")
+	private Set<Producto> productos;
+	
+	@OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id", referencedColumnName = "id")
+	private Cliente cliente;
+	
 	
 }
