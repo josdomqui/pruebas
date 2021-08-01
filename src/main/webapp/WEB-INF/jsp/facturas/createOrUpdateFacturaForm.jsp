@@ -8,11 +8,11 @@
 
 <petclinic:layout pageName="facturas">
     <h2>
-        <c:if test="${factura['new']}">New </c:if> Factura
+        <c:if test="${factura['new']}">Nueva </c:if> Factura
     </h2>
     <form:form modelAttribute="factura" class="form-horizontal" id="add-facturas-form">
         <div class="form-group has-feedback">
-            <petclinic:inputField label="Fecha" name="fecha"/>       
+            <petclinic:inputField label="Fecha_Factura" name="fecha"/>       
         </div>
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">

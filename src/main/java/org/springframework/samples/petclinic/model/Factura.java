@@ -27,4 +27,31 @@ public class Factura extends BaseEntity{
 	@Column(name = "fecha")
 	@DateTimeFormat(pattern = "yyyy/MM/dd")
 	private LocalDate fecha;
+
+	public Set<Producto> getProductos() {
+		return productos;
+	}
+
+	public void setProductos(Set<Producto> productos) {
+		this.productos = productos;
+	}
+
+	public Cliente getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+	}
+
+	public LocalDate getFecha() {
+		return fecha;
+	}
+
+	public void setFecha(LocalDate fecha) {
+		this.fecha = fecha;
+	}
+	
+	
+	
 }
