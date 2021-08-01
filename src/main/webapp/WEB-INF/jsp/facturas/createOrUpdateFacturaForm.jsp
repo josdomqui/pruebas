@@ -12,7 +12,8 @@
     </h2>
     <form:form modelAttribute="factura" class="form-horizontal" id="add-facturas-form">
         <div class="form-group has-feedback">
-            <petclinic:inputField label="Fecha_Factura" name="fecha"/>       
+            <petclinic:inputField label="Fecha_Factura" name="fecha"/> 
+             <petclinic:inputField label="Productos" name="productos"/>    
         </div>
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
