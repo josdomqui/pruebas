@@ -1,13 +1,12 @@
 package org.springframework.samples.petclinic.model;
 
 import java.time.LocalDate;
-import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -17,9 +16,6 @@ import org.springframework.format.annotation.DateTimeFormat;
 @Table(name = "facturas")
 public class Factura extends BaseEntity{
 	
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "factura")
-	private Set<Producto> productos;
-	
 	@OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id", referencedColumnName = "id")
 	private Cliente cliente;
@@ -28,14 +24,11 @@ public class Factura extends BaseEntity{
 	@DateTimeFormat(pattern = "yyyy/MM/dd")
 	private LocalDate fecha;
 
-	public Set<Producto> getProductos() {
-		return productos;
-	}
-
-	public void setProductos(Set<Producto> productos) {
-		this.productos = productos;
-	}
-
+	
+	@ManyToOne
+	@JoinColumn(name = "producto_id")
+	private Producto producto;
+	
 	public Cliente getCliente() {
 		return cliente;
 	}
