@@ -15,6 +15,6 @@ public class Producto extends NamedEntity{
 	
 	@NotEmpty
 	@Column(name = "coste")
-	private String coste;
+	private Integer coste;
 
 }

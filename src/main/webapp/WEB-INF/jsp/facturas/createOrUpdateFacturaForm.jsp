@@ -12,9 +12,45 @@
     </h2>
     <form:form modelAttribute="factura" class="form-horizontal" id="add-facturas-form">
         <div class="form-group has-feedback">
-            <petclinic:inputField label="Fecha_Factura" name="fecha"/> 
-             
+            <petclinic:inputField label="Fecha_Factura" name="fecha"/>   
         </div>
+        
+     <table id="productosTable" class="table table-striped">
+        <thead>
+        <tr>
+            <th style="width: 150px;">Name</th>
+            <th style="width: 200px;">Coste</th>
+            <th style="width: 120px">Descripci�n</th>
+        </tr>
+        </thead>
+        <tbody>
+        <c:forEach items="${selections}" var="producto">
+            <tr>
+                <td>
+                    <spring:url value="/productos" var="productoUrl">
+                        <spring:param name="productoId" value="${productoid.}"/>
+                    </spring:url>
+                    <a href="${fn:escapeXml(productoUrl)}"><c:out value="${producto.name} ${producto.description}"/></a>
+                </td>
+                <td>
+                    <c:out value="${producto.coste}"/>
+                </td>
+               
+                
+      
+<!--
+                <td> 
+                    <c:out value="${owner.user.username}"/> 
+                </td>
+                <td> 
+                   <c:out value="${owner.user.password}"/> 
+                </td> 
+-->
+                
+            </tr>
+        </c:forEach>
+        </tbody>
+    </table>
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
                 <c:choose>

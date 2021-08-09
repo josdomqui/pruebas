@@ -1,8 +1,11 @@
 package org.springframework.samples.petclinic.service;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.samples.petclinic.model.Factura;
+import org.springframework.samples.petclinic.model.Producto;
 import org.springframework.samples.petclinic.repository.ClienteRepository;
 import org.springframework.samples.petclinic.repository.FacturaRepository;
 import org.springframework.samples.petclinic.repository.ProductoRepository;
@@ -32,4 +35,9 @@ public class FacturaService {
 		facturaRepository.save(factura);		
 		
 	}		
+	
+	@Transactional(readOnly = true)
+	public Collection<Producto> showProducts() throws DataAccessException {
+		return productoRepository.showProducts();
+	}
 }
