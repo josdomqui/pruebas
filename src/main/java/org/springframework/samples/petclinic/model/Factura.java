@@ -1,6 +1,9 @@
 package org.springframework.samples.petclinic.model;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -9,7 +12,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlElement;
 
+import org.springframework.beans.support.MutableSortDefinition;
+import org.springframework.beans.support.PropertyComparator;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
@@ -45,6 +51,21 @@ public class Factura extends BaseEntity{
 		this.fecha = fecha;
 	}
 	
+	public List<Producto> getVetList() {
+		List<Producto> lista = new ArrayList<>();
+		lista.add(producto);
+		return lista;
+	}
 	
+	
+//	List<Producto> sortedProductos = new ArrayList<>(getPetsInternal());
+//		PropertyComparator.sort(sortedPets, new MutableSortDefinition("name", true, true));
+//		return Collections.unmodifiableList(sortedPets);
+//	}
+//
+//	public void addPet(Pet pet) {
+//		getPetsInternal().add(pet);
+//		pet.setOwner(this);
+//	}
 	
 }

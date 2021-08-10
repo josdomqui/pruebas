@@ -1,5 +1,6 @@
 package org.springframework.samples.petclinic.repository;
 
+import java.util.Collection;
 import java.util.List;
 
 import org.springframework.dao.DataAccessException;
@@ -12,6 +13,6 @@ public interface ProductoRepository extends Repository<Producto, Integer> {
 	void save(Producto producto) throws DataAccessException;
 	
 	@Query("SELECT p FROM Producto p ORDER BY p.name")
-	List<Producto> showProducts() throws DataAccessException;;
+	Collection<Producto> pepe() throws DataAccessException;
 
 }

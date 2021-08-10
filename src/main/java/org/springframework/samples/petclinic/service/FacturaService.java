@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.samples.petclinic.model.Factura;
 import org.springframework.samples.petclinic.model.Producto;
+import org.springframework.samples.petclinic.model.Vet;
 import org.springframework.samples.petclinic.repository.ClienteRepository;
 import org.springframework.samples.petclinic.repository.FacturaRepository;
 import org.springframework.samples.petclinic.repository.ProductoRepository;
@@ -36,8 +37,8 @@ public class FacturaService {
 		
 	}		
 	
-	@Transactional(readOnly = true)
-	public Collection<Producto> showProducts() throws DataAccessException {
-		return productoRepository.showProducts();
-	}
+	@Transactional(readOnly = true)	
+	public Collection<Producto> findProducts() throws DataAccessException {
+		return productoRepository.pepe();
+	}	
 }
