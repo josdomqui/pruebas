@@ -22,35 +22,22 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class FacturaController {
 	
-	private static final String VIEWS_OWNER_CREATE_OR_UPDATE_FORM = "facturas/createOrUpdateFacturaForm";
-
 	private final FacturaService facturaService;
 
 	@Autowired
-	public FacturaController(FacturaService facturaService, UserService userService, AuthoritiesService authoritiesService) {
+	public FacturaController(FacturaService facturaService) {
 		this.facturaService = facturaService;
 	}
 	
-	@GetMapping(value = "/facturas/new")
-	public String initCreationForm(Map<String, Object> model) {
-		Factura factura= new Factura();
-		factura.getVetList().addAll(this.facturaService.findProducts());
-		model.put("factura", factura);	
-		return VIEWS_OWNER_CREATE_OR_UPDATE_FORM;
-	}
-	
-
-	@PostMapping(value = "/facturas/new")
-	public String processCreationForm(Factura factura, BindingResult result, ModelMap model) {		
-		if (result.hasErrors()) {
-			return VIEWS_OWNER_CREATE_OR_UPDATE_FORM;
-		}
-		else {
-			
-			this.facturaService.saveFactura(factura);
-			
-			return "redirect:/facturas/" + factura.getId();
-		}
+	@GetMapping(value = { "/facturas/new" })
+	public String showProductsList(Map<String, Object> model) {
+		// Here we are returning an object of type 'Vets' rather than a collection of Vet
+		// objects
+		// so it is simpler for Object-Xml mapping
+		Factura facturas = new Factura();
+		facturas.getVetList().addAll(this.facturaService.findProductos());
+		model.put("facturas", facturas);
+		return "facturas/createOrUpdateFacturaForm";
 	}
 	
 

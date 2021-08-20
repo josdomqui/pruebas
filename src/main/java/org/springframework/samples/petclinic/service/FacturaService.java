@@ -17,7 +17,6 @@ import org.springframework.transaction.annotation.Transactional;
 public class FacturaService {
 	
 	private FacturaRepository facturaRepository;
-	private ClienteRepository clienteRepository;
 	private ProductoRepository productoRepository;
 	
 	
@@ -25,7 +24,6 @@ public class FacturaService {
 	public FacturaService(FacturaRepository facturaRepository, ClienteRepository clienteRepository, 
 			ProductoRepository productoRepository) {
 		this.facturaRepository = facturaRepository;
-		this.clienteRepository = clienteRepository;
 		this.productoRepository = productoRepository;
 
 	}
@@ -38,7 +36,7 @@ public class FacturaService {
 	}		
 	
 	@Transactional(readOnly = true)	
-	public Collection<Producto> findProducts() throws DataAccessException {
-		return productoRepository.pepe();
+	public Collection<Producto> findProductos() throws DataAccessException {
+		return productoRepository.findAll();
 	}	
 }

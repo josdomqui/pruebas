@@ -2,13 +2,11 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="petclinic" tagdir="/WEB-INF/tags" %>
 
 <petclinic:layout pageName="factura">
     <h2>
-        <c:if test="${factura['new']}">Nueva </c:if> Factura
+       Nueva Factura
     </h2>
    
         
@@ -17,19 +15,21 @@
         <tr>
             <th>Name</th>
             <th>Coste</th>
-            <th>Descrip</th>
+            <th>Descripcion</th>
         </tr>
         </thead>
         <tbody>
-        <c:forEach items="${productos}" var="producto">
+        <c:forEach items="${productos.vetList}" var="producto">
+            <p>producto.name</p>
             <tr>
                 <td>
                     <c:out value="${producto.name}"/>
                 </td>
                 <td>
-                    <c:forEach var="description" items="${producto.description}">
-                    
-                    </c:forEach>
+                    <c:out var="coste" items="${producto.coste}"/>
+                </td>
+                 <td>
+                    <c:out var="description" items="${producto.description}"/>
                 </td>
             </tr>
         </c:forEach>
@@ -47,5 +47,4 @@
                 </c:choose>
             </div>
         </div>
-    </form:form>
 </petclinic:layout>
