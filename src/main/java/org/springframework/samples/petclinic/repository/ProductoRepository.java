@@ -13,6 +13,6 @@ public interface ProductoRepository extends Repository<Producto, Integer> {
 	 * @return a <code>Collection</code> of <code>Producto</code>s
 	 */
 	
-	Collection<Producto> findAll() throws DataAccessException;
+	Collection<Producto> getProductos() throws DataAccessException;
 
 }

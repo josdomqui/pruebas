@@ -47,9 +47,9 @@ import org.springframework.core.style.ToStringCreator;
 @Table(name = "owners")
 public class Owner extends Person {
 
-	@Column(name = "address")
+	@Column(name = "address")//a este no se le pregunta en la consulta
 	@NotEmpty
-	private String address;
+	private String address;//a este siempre, para hacer las consultas se le debe preguntar con el loquesea.address
 
 	@Column(name = "city")
 	@NotEmpty

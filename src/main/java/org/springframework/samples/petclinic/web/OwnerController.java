@@ -58,7 +58,8 @@ public class OwnerController {
 	@GetMapping(value = "/owners/new")
 	public String initCreationForm(Map<String, Object> model) {
 		Owner owner = new Owner();
-		model.put("owner", owner);
+		model.put("owner", owner);//lo que pongamos aqui es el model atribute de la vista
+		//tambien sirve para acceder con las tags en la vista tipo ${owner.id}
 		return VIEWS_OWNER_CREATE_OR_UPDATE_FORM;
 	}
 
