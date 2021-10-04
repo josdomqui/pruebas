@@ -38,5 +38,12 @@ public class FacturaService {
 	@Transactional(readOnly = true)	
 	public Collection<Producto> findProductos() throws DataAccessException {
 		return productoRepository.findAll();
-	}	
+		
+	}
+	
+	void sinnada() {
+		
+	}
+	
+	
 }
